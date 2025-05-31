@@ -41,6 +41,47 @@
 {% schema %}
 {
   "name": "Template Artticle",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "enable_author",
+      "default":true,
+      "label": "Display Author"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_published_date",
+      "default":true,
+      "label": "Display Published Date"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "article_published_date",
+      "name": "Published Date",
+      "limit": 1
+    },
+    {
+      "type": "article_title",
+      "name": "Title",
+      "limit": 1
+    },
+    {
+      "type": "article_author",
+      "name": "Author",
+      "limit": 1
+    },
+    {
+      "type": "featured_image",
+      "name": "Featured Image",
+      "limit": 1
+    },
+    {
+        "type": "article_content",
+        "name": "Content",
+        "limit": 1
+    }
+  ]
   
 }
 

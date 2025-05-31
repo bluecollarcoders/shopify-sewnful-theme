@@ -1,0 +1,39 @@
+<article class="prose mx-auto max-w-4xl py-12 px-4 sm:px-6 lg:px-8 article-content">
+
+    {%- comment -%} — Meta & Title — {%- endcomment -%}
+    <header class="mb-12 text-center">
+      <time
+        datetime="{{ article.published_at | date: '%Y-%m-%d' }}"
+        class="block text-sm text-gray-500 uppercase mb-2"
+      >
+        {{ article.published_at | date: '%-d %B %Y' }}
+      </time>
+  
+      <h1 class="font-serif text-4xl sm:text-5xl font-bold mb-4">
+        {{ article.title }}
+      </h1>
+
+     <span> <small>by</small> <small>{{ article.author }}</small></span> 
+    </header>
+
+    <figure class="w-full max-w-[827px] h-[500px] mx-auto my-8 overflow-hidden rounded-lg shadow-md">
+        <img
+          src="{{ article.image | img_url: '827x500_crop_center' }}"
+          srcset="
+            {{ article.image | img_url: '827x500_crop_center' }} 1x,
+            {{ article.image | img_url: '1654x1000_crop_center' }} 2x
+          "
+          alt="{{ article.image.alt | escape }}"
+          class="w-full h-full object-cover"
+          loading="lazy"
+          height=""
+          width=""
+        >
+   </figure>
+      
+    {%- comment -%} — The body content from Shopify, first paragraph will get your drop-cap CSS — {%- endcomment -%}
+    <div class="article-body prose prose-lg">
+        {{ article.content }}
+    </div>
+   
+</article>
